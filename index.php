@@ -1,4 +1,22 @@
 <?php
+//definisco un Trait per il rating dei film e lo uso nella classe Movie
+trait HasRating {
+    public int $rating = 0;
+
+    public function getStars(): string {
+        $stars = '';
+
+        for ($i = 1; $i <= 5; $i++) {
+            if ($i <= $this->rating) {
+                $stars .= '★';
+            } else {
+                $stars .= '☆';
+            }
+        }
+
+        return $stars;
+    }
+}
 //definisco la classe Genre e faccio composizione con la classe Movie
 class Genre {
     public string $name;
@@ -10,6 +28,7 @@ class Genre {
 
 //creo una classe Movie con le proprietà title, year e duration
 class Movie {
+    use HasRating;
     public string $title;
     public int $year; 
     public int $duration;
@@ -19,11 +38,12 @@ class Movie {
 
 
     //definisco il costruttore per inizializzare le proprietà
-    public function __construct(string $_title, int $_year, int $_duration, array $_genres) {
+    public function __construct(string $_title, int $_year, int $_duration, array $_genres, int $_rating) {
         $this->title = $_title;
         $this->year = $_year;
         $this->duration = $_duration;
         $this->genres = $_genres;
+        $this->rating = $_rating;
     }
 
     //definisco un metodo per ottenere una descrizione del film
@@ -46,14 +66,16 @@ $movie1 = new Movie(
     "Inception",
     2010,
     148,
-    [$sciFi, $action]
+    [$sciFi, $action],
+    5
 );
 
 $movie2 = new Movie(
     "Spirited Away",
     2001,
     125,
-    [$animation, $fantasy]
+    [$animation, $fantasy],
+    4
 );
 
 $movies = [$movie1, $movie2];
@@ -89,6 +111,7 @@ $movies = [$movie1, $movie2];
             <li><?php echo $genre->name; ?></li>
             <?php } ?>
         </ul>
+        Valutazione: <?php echo $movie->getStars(); ?><br>
         Riassunto: <?php echo $movie->getSummary(); ?>
         <hr>
       </li>
