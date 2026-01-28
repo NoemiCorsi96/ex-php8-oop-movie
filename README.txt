@@ -16,7 +16,7 @@ Creare un file index.php in cui
 
 
 Bonus 1
-Modificare la classe Movie in modo che accetti piú di un genere.
+Modificare la classe Movie in modo che accetti piú di un genere. ok
 Bonus 2
 Aggiungere un Trait alla classe Movie con almeno una proprietà e un metodo.
 Bonus 3
