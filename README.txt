@@ -21,7 +21,7 @@ Bonus 2
 Aggiungere un Trait alla classe Movie con almeno una proprietà e un metodo.
 Bonus 3
 Creare un layout completo per stampare a schermo una lista di movies.
-Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi file e cartelle.
+Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi file e cartelle. ok
 
 Possiamo ad esempio organizzare il codice
 - creando un file dedicato ai dati (tipo le array di oggetti) che potremmo chiamare db.php
