@@ -9,10 +9,10 @@ Creare un file index.php in cui
    => all'interno della classe è definito almeno un metodo ok 
 - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà ok 
 
-- è definita una classe Genre
-  -> all'interno della classe sono dichiarate delle variabili d'istanza
-  -> all'interno della classe è definito un costruttore
-- ogni film ha un genere
+- è definita una classe Genre ok
+  -> all'interno della classe sono dichiarate delle variabili d'istanza ok
+  -> all'interno della classe è definito un costruttore ok
+- ogni film ha un genere ok 
 
 
 Bonus 1

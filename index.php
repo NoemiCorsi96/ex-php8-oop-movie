@@ -1,25 +1,37 @@
 <?php
+//definisco la classe Genre e faccio composizione con la classe Movie
+class Genre {
+    public string $name;
+
+    public function __construct(string $_name) {
+        $this->name = $_name;
+    }
+}
+
 //creo una classe Movie con le proprietà title, year e duration
 class Movie {
     public string $title;
     public int $year; 
     public int $duration;
+    public Genre $genre;
 
     //definisco il costruttore per inizializzare le proprietà
-    public function __construct(string $_title, int $_year, int $_duration) {
+    public function __construct(string $_title, int $_year, int $_duration, Genre $_genre) {
         $this->title = $_title;
         $this->year = $_year;
         $this->duration = $_duration;
+        $this->genre = $_genre;
     }
 
     //definisco un metodo per ottenere una descrizione del film
     public function getSummary(): string{
-        return $this->title . " (" . $this->year . ") - Duration: " . $this->duration . " minutes.";
+        return $this->title . " (" . $this->year . ") - " .
+               $this->duration . " min - Genere: " . $this->genre->name;
     }
 }
 //istanzio due oggetti Movie
-$movie1 = new Movie("Inception", 2010, 148);
-$movie2 = new Movie("The Matrix", 1999, 136);
+$movie1 = new Movie("Inception", 2010, 148, new Genre("Sci-Fi"));
+$movie2 = new Movie("The Matrix", 1999, 136, new Genre("Sci-Fi"));
 //creo un array contenente i due film ed utilizzo un foreach per stamparne le informazioni
 $movies = [$movie1, $movie2];
 
@@ -42,6 +54,7 @@ $movies = [$movie1, $movie2];
         <strong><?php echo $movie->title; ?></strong><br>
         Anno: <?php echo $movie->year; ?><br>
         Durata: <?php echo $movie->duration; ?> minuti<br>
+        Genere: <?php echo $movie->genre->name; ?><br>
         Riassunto: <?php echo $movie->getSummary(); ?>
         <hr>
       </li>
